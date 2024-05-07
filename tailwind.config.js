@@ -17,10 +17,10 @@ export const theme = {
     colors: {
       'Primary': '#096BD8',
       'Secondary': '#0A8E26',
-      "White": '#F8F8F8',
-      'OtherWhite': '#F2F5F2',
-      'OtherRed': '#FB6612',
-      'OtherBlack': '#010101'
+      "White": '#FFFFFF',
+      'OtherWhite': '#F8F8F8',
+      'FooterGray': '#F0F0F0',
+      'Black': '#000000'
     },
     fontFamily: {
       montserrat: ['Montserrat', 'sans-serif'],

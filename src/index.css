@@ -10,4 +10,13 @@
  }
  body {
   font-family: 'ClashGrotesk';
+  color: #000000;
+ }
+ .hero-1{
+  background: linear-gradient(rgba(0, 0, 0, 0.521), rgba(0, 0, 0, 0.521)), url("./Pages//Homepage/assets/Hero1.svg");
+  background-blend-mode: overlay;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: rgba(0, 0, 0, 0.356) */
  }
