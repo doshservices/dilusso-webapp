@@ -24,6 +24,7 @@ export const theme = {
     },
     fontFamily: {
       montserrat: ['Montserrat', 'sans-serif'],
+      raleway: ['Raleway', 'sans-serif'],
       clashGrotesk: ['ClashGrotesk']
     },
   },
