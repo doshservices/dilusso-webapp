@@ -84,36 +84,39 @@ export default function NewArrivals() {
           <hr className=" my-3 w-[15%] border-red-500 border-[2px] " />
         </section>
 
-        <Swiper
-        spaceBetween={30}
-        slidesPerView={4}
-        navigation={true}
-        pagination={false}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Navigation, Pagination]}
-        className="mySwiper"
-      >
-        {/* <section className=" mt-[1%] flex items-center gap-[3%] "> */}
-         
-         {New.map((cloth) => (
-           <SwiperSlide>
-           <div key={cloth.id} className=" ">
-           <div>
-             <img src={cloth.img} className="w-full " alt="" />
-           </div>
-           <div className=" flex flex-col mt-[5%] gap-2 items-center ">
-               <h2 className=" font-medium text-[1.1rem] ">{cloth.itemName}</h2>
-               <p className=" text-[1rem] ">{cloth.description}</p>
-               <h4 className="font-medium text-[1.1rem]">N{cloth.price}</h4>
-           </div>
-         </div>
-         </SwiperSlide>
-         ))}
-        {/* </section> */}
-        </Swiper>
+        <section className=" mt-[1%] ">
+          <Swiper
+            spaceBetween={0}
+            slidesPerView={4}
+            navigation={true}
+            pagination={false}
+            // autoplay={{
+            //   delay: 5000,
+            //   disableOnInteraction: false,
+            // }}
+            modules={[Autoplay, Navigation, Pagination]}
+            className="mySwiper"
+          >
+            {New.map((cloth) => (
+              <SwiperSlide>
+                <div key={cloth.id} className="px-[10%] ">
+                  <div>
+                    <img src={cloth.img} className="w-full " alt="" />
+                  </div>
+                  <div className=" flex flex-col mt-[5%] gap-2 items-center ">
+                    <h2 className=" font-medium text-[1.1rem] ">
+                      {cloth.itemName}
+                    </h2>
+                    <p className=" text-[1rem] ">{cloth.description}</p>
+                    <h4 className="font-medium text-[1.1rem]">
+                      N{cloth.price}
+                    </h4>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section>
       </div>
     </div>
   );
