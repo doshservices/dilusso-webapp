@@ -42,27 +42,27 @@ export default function ShopTheLook() {
         SHOP THE LOOK
       </h1>
       <section className=" mt-[2%] flex justify-between">
-        <div className=" w-[35%] ">
+        <div className="hidden sm:block w-[37%] lg:w-[35%] ">
           <img src={Shop} className=" w-full " alt="" />
         </div>
-        <div className="w-[62%] flex gap-y-4 justify-between flex-wrap ">
+        <div className="w-[100%] sm:w-[62%] flex gap-y-2 lg:gap-y-4 justify-between flex-wrap ">
           {ShopItems.map((shop) => (
             <section
               key={shop.id}
-              className="w-[49%] flex items-center bg-[#F6F6F6] px-[1%]  "
+              className="w-[49%] flex items-center bg-[#F6F6F6] pb-[2%] sm:pb-0 px-[1%]  "
             >
               <div>
-                <div className=" w-[70%] h-[17rem] flex items-center mx-auto ">
+                <div className=" w-[45%] sm:w-[40%] md:w-[50%] h-[8rem] ssm:h-[12rem] sm:h-[8rem] md:h-[10rem] lg:h-[12rem] xl:h-[15rem] flex items-center mx-auto ">
                   <img src={shop.img} className=" w-full" alt="" />
                 </div>
-                <div className="mt-[5%] text-center flex flex-col gap-2 ">
-                  <h3 className=" text-[0.95rem] xxl:text-[1rem] font-medium ">
+                <div className="mt-[5%] text-center flex flex-col gap-1 lg:gap-2 ">
+                  <h3 className=" text-[0.9rem] ssm:text-[0.95rem] xxl:text-[1rem] font-medium ">
                     {shop.itemName}
                   </h3>
-                  <p className="text-[0.85rem] xxl:text-[0.9rem]  ">
+                  <p className="text-[0.8rem] ssm:text-[0.85rem] xxl:text-[0.9rem]  ">
                     {shop.description}
                   </p>
-                  <h4 className=" text-[0.95rem] xxl:text-[1rem] font-medium ">
+                  <h4 className=" text-[0.9rem] ssm:text-[0.95rem] xxl:text-[1rem] font-medium ">
                     N{shop.price}
                   </h4>
                 </div>

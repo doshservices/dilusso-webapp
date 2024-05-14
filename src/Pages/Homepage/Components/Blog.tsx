@@ -42,13 +42,13 @@ export default function Blog() {
           <SwiperSlide>
             <div
               key={blog.id}
-              className={`${blog.background} mx-[5%] my-[5%] pt-[15%] px-[1.5%] pb-[1%] flex items-end `}
+              className={`${blog.background} mx-[5%] my-[5%] pt-[15%] px-[3%] sm:px-[1.5%] pb-[1%] flex items-end `}
             >
               <section className=" text-White ">
-                <small className=" font-medium text-[0.85rem] ">
+                <small className=" font-medium text-[0.75rem] ssm:text-[0.8rem] sm:text-[0.85rem] ">
                   LATEST FASHION NEWS GOES HERE
                 </small>
-                <h3 className=" font-medium text-[1.7rem] ">
+                <h3 className=" font-medium text-[1.2rem] ssm:text-[1.4rem] sm:text-[1.7rem] ">
                   Three Ways To Wear Tailoring, Casually
                 </h3>
                 <div className=" my-5">
