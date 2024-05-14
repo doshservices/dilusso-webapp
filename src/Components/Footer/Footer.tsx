@@ -50,11 +50,11 @@ export default function Footer() {
             <Link to="">Cookie Center</Link>
             <Link to="">Cookie Policy</Link>
         </div>
-        <div className="text-[1.2rem] flex gap-3 ">
-            <FaWhatsapp />
-            <FaInstagram />
-            <AiOutlineYoutube />
-            <RiTwitterXFill />
+        <div className="text-[1.3rem] flex gap-4 ">
+            <Link to="" className=" hover:text-blue-500 " ><FaWhatsapp /></Link>
+            <Link to="" className=" hover:text-blue-500 " ><FaInstagram /></Link>
+            <Link to="" className=" hover:text-blue-500 " ><AiOutlineYoutube /></Link>
+            <Link to="" className=" hover:text-blue-500 " ><RiTwitterXFill /></Link>
         </div>
       </section>
     </div>

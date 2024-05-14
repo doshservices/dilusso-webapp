@@ -9,7 +9,7 @@ export default function Button(props: Props) {
   return (
     <Link
       to={props.link}
-      className=" text-OtherWhite  bg-Black rounded-[4px] py-3 px-4 text-[0.85rem] xxl:text-[0.9rem] "
+      className=" text-[#222222] border-[1px] font-semibold hover:bg-black hover:text-White border-Black py-3 px-6 text-[0.85rem] xxl:text-[0.9rem] "
     >
       {props.text}
     </Link>

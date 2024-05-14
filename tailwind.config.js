@@ -20,7 +20,7 @@ export const theme = {
       "White": '#FFFFFF',
       'OtherWhite': '#F8F8F8',
       'FooterGray': '#F0F0F0',
-      'Black': '#000000'
+      'Black': '#222222'
     },
     fontFamily: {
       montserrat: ['Montserrat', 'sans-serif'],
