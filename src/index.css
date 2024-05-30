@@ -8,41 +8,56 @@
 @font-face {
   font-family: 'ClashGrotesk';
   src: local('ClashGrotesk-Variable'), url('./Fonts/ClashGrotesk-Variable.ttf') format('truetype');
- }
- body {
+}
+
+body {
   font-family: 'ClashGrotesk';
   color: #222222;
- }
- .blog{
+}
+
+.blog {
   background: url("./Pages//Homepage/assets/Blog1.svg");
   background-blend-mode: overlay;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- }
+}
 
- /* swiper */
- .mySwiper .swiper-button-prev {
+.about-hero {
+  background: url("./assets/about-hero.png");
+  background-blend-mode: overlay;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+
+}
+
+/* swiper */
+.mySwiper .swiper-button-prev {
   position: absolute !important;
   left: 0% !important;
   color: #222222;
   padding: 1.5% !important;
   border: 2px solid #222222;
   cursor: pointer;
- }
- .mySwiper .swiper-button-next {
+}
+
+.mySwiper .swiper-button-next {
   position: absolute !important;
   right: 0% !important;
   color: #222222;
   padding: 1.5% !important;
   border: 2px solid #222222;
   cursor: pointer;
- }
- .swiper-button-prev::after, .swiper-button-next::after {
-  font-size: 1.5rem;
- }
+}
 
- @media screen and (max-width: 640px) {
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 640px) {
   .mySwiper .swiper-button-prev {
     position: absolute !important;
     left: 0% !important;
@@ -50,16 +65,19 @@
     padding: 1.5% !important;
     border: 2px solid #222222;
     cursor: pointer;
-   }
-   .mySwiper .swiper-button-next {
+  }
+
+  .mySwiper .swiper-button-next {
     position: absolute !important;
     right: 0% !important;
     color: #222222;
     padding: 1.5% !important;
     border: 2px solid #222222;
     cursor: pointer;
-   }
-   .swiper-button-prev::after, .swiper-button-next::after {
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
     font-size: 1.1rem;
-   }
- }
+  }
+}

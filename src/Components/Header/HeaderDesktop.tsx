@@ -11,8 +11,8 @@ import { IoSearchOutline } from "react-icons/io5";
 
 export default function HeaderDesktop() {
   return (
-    <header className="   bg-White fixed top-0 w-full z-10 py-[1.5%] px-[5%]">
-      <div className="  flex items-center justify-between  ">
+    <header className="bg-White fixed top-0 w-full z-10 py-[1.5%] px-[5%]">
+      <div className="flex items-center justify-between  ">
         <section className=" flex  gap-2 lg:gap-4 text-[0.8rem] lg:text-[0.9rem] font-medium ">
           <Link to="">Men’s Wear</Link>
           <Link to="">Women’s Wear</Link>
