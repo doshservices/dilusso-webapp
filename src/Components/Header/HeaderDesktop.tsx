@@ -8,8 +8,13 @@ import {
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
+import { useState } from "react";
+import { CartItems } from "../Cart/Cart";
 
 export default function HeaderDesktop() {
+
+  const [showCart, setShowCart] = useState<boolean>(false)
+
   return (
     <header className="bg-White fixed top-0 w-full z-10 py-[1.5%] px-[5%]">
       <div className="flex items-center justify-between  ">
@@ -26,7 +31,9 @@ export default function HeaderDesktop() {
         <section className="text-[1.3rem] flex  justify-end gap-4">
           <MdOutlinePerson />
           <MdFavoriteBorder />
-          <MdOutlineShoppingCart />
+          <button onClick={() => setShowCart(!showCart)}>
+            <MdOutlineShoppingCart />
+          </button>
           <div className=" cursor-pointer flex items-center">
             <MdLanguage />
             <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
@@ -95,6 +102,10 @@ export default function HeaderDesktop() {
           <IoSearchOutline className=" text-[1.3rem] " />
         </section>
       </div>
+      {showCart ?
+        <CartItems />
+        : null
+      }
     </header>
   );
 }

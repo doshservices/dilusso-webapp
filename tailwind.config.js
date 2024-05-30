@@ -20,12 +20,16 @@ export const theme = {
       "White": '#FFFFFF',
       'OtherWhite': '#F8F8F8',
       'FooterGray': '#F0F0F0',
-      'Black': '#222222'
+      'Black': '#222222',
+      'transparentDark': 'hsla(0, 0%, 13%, 0.8)',
+      'borderHash': '#BABABA',
+      'borderCartActions': '#999999'
     },
     fontFamily: {
       montserrat: ['Montserrat', 'sans-serif'],
       raleway: ['Raleway', 'sans-serif'],
-      clashGrotesk: ['ClashGrotesk']
+      clashGrotesk: ['ClashGrotesk'],
+      outfit: ['Outfit', 'sans-serif'],
     },
   },
 };
