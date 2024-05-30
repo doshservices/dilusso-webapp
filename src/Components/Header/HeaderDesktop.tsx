@@ -103,7 +103,7 @@ export default function HeaderDesktop() {
         </section>
       </div>
       {showCart ?
-        <CartItems />
+        <CartItems close={() => setShowCart(!showCart)} />
         : null
       }
     </header>
