@@ -74,8 +74,6 @@ const New = [
   },
 ];
 
-
-
 export default function NewArrivals() {
   const [slidesPerView, setSlidesPerView] = useState(window.innerWidth < 640 ? 2 : 4);
 
@@ -88,6 +86,7 @@ export default function NewArrivals() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <div className="px-[5%] py-[5%] ">
       <div className="">
@@ -110,7 +109,7 @@ export default function NewArrivals() {
             }}
             modules={[Autoplay, Navigation, Pagination]}
             className="mySwiper"
-            
+
           >
             {New.map((cloth) => (
               <SwiperSlide>
