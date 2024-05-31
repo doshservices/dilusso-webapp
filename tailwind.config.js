@@ -30,7 +30,11 @@ export const theme = {
       raleway: ['Raleway', 'sans-serif'],
       clashGrotesk: ['ClashGrotesk'],
       outfit: ['Outfit', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
     },
+    boxShadow: {
+      'shawdowCart': '0px 1px 2px 0px #1018280D'
+    }
   },
 };
 export const plugins = []; 

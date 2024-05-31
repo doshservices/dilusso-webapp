@@ -1,5 +1,7 @@
 import item from '../../assets/item.png';
 
+export { item }
+
 export const Items = () => (
     <div className='flex items-center gap-8 border-b-[#E9E9E9] border-b-[1px] pt-6 pb-2 pl-4 sm:pl-8 pr-4 sm:pr-6'>
         <img src={item} alt="" />

@@ -1,0 +1,2 @@
+export const deliveryInputStyle = 'text-sm block font-inter border-[1px] border-Black shadow-shawdowCart focus:outline-borderHash px-3 py-2.5 outline-offset-2 w-full'
+export const deliveryLabelStyle = 'font-inter block text-sm mb-1 text-[#344054] font-medium'
