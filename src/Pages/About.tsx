@@ -1,5 +1,5 @@
-import aboutImg from '../../assets/about-us.png'
-import fullImg from '../../assets/about-hero.png'
+import aboutImg from '../assets/about-us.png'
+import fullImg from '../assets/about-hero.png'
 
 const AboutUs = () => {
     return (
