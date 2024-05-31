@@ -1,9 +1,9 @@
-import { CartBtn } from "./Button/CartBtn"
-import { item } from "./Cart/ItemCard"
+import { CartBtn } from "../Button/CartBtn"
+import { item } from "./ItemCard"
 
 export const CartSummary = () => {
     return (
-        <section className="pb-12 md:px-4">
+        <section className="pb-12 md:px-4 md:sticky top-[10rem]">
             <h2 className="font-medium font-outfit leading-none text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] mb-6 text-center border-b-[1px] border-b-borderHash pb-3">
                 Summary
             </h2>

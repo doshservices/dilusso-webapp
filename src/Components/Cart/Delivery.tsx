@@ -3,7 +3,7 @@ import { deliveryInputStyle, deliveryLabelStyle } from '../../resources/inputSty
 
 export const DeliveryAddress = () => {
     return (
-        <section>
+        <section className="pb-8">
             <h2 className="font-medium font-outfit text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] my-6">
                 Add your delivery address
             </h2>

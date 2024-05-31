@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DeliveryAddress } from "../../Components/Cart/Delivery";
-import { CartSummary } from "../../Components/CartSummary";
+import { CartSummary } from "../../Components/Cart/CartSummary";
+import { Payment } from "../../Components/Cart/Payment";
 
 const CheckOut = () => {
     const [selectedButton, setSelectedButton] = useState('');
@@ -9,8 +10,8 @@ const CheckOut = () => {
         switch (tab) {
             case 'address':
                 return 'address';
-            case 'delivery':
-                return 'delivery';
+            case 'payment':
+                return 'payment';
             case 'review':
                 return 'review';
             default:
@@ -21,7 +22,7 @@ const CheckOut = () => {
     const activeTabs = setActiveTab(selectedButton)
 
     return (
-        <div className="pt-20 pb-8 sm:pt-36 px-[5%] md:grid grid-cols-[2fr_1fr] gap-[5%]">
+        <div className="pt-20 pb-8 sm:pt-36 px-[5%] md:grid grid-cols-[2fr_1fr] gap-[5%] relative">
             <div>
                 <div className="flex gap-6 sm:gap-12 mt-8">
                     <button style={{ color: activeTabs === 'address' ? 'Black' : '#999999' }}
@@ -32,11 +33,11 @@ const CheckOut = () => {
                         <span className="inline-block h-[1.5px] bg-Black w-full max-w-[170px]"></span>
                     </button>
                     <button
-                        style={{ color: activeTabs === 'delivery' ? 'Black' : '#999999' }}
+                        style={{ color: activeTabs === 'payment' ? 'Black' : '#999999' }}
                         className='grow font-outfit font-bold text-base flex gap-1 items-center'
-                        onClick={() => setSelectedButton('delivery')}
+                        onClick={() => setSelectedButton('payment')}
                     >
-                        <span>Delivery</span>
+                        <span>Payment</span>
                         <span className="inline-block h-[1.5px] bg-Black w-full max-w-[170px]"></span>
                     </button>
                     <button
@@ -50,7 +51,9 @@ const CheckOut = () => {
                 </div>
                 {activeTabs === 'address' ?
                     <DeliveryAddress />
-                    : null
+                    : activeTabs === 'payment' ?
+                        <Payment />
+                        : null
                 }
             </div>
             <CartSummary />
