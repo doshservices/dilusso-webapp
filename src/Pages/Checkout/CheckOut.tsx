@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DeliveryAddress } from "../../Components/Cart/Delivery";
 import { CartSummary } from "../../Components/Cart/CartSummary";
 import { Payment } from "../../Components/Cart/Payment";
+import { Review } from "../../Components/Cart/Review";
 
 const CheckOut = () => {
     const [selectedButton, setSelectedButton] = useState('');
@@ -53,7 +54,9 @@ const CheckOut = () => {
                     <DeliveryAddress />
                     : activeTabs === 'payment' ?
                         <Payment />
-                        : null
+                        : activeTabs === 'review' ?
+                            <Review />
+                            : null
                 }
             </div>
             <CartSummary />
