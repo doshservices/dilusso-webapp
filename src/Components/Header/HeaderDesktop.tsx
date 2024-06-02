@@ -8,12 +8,23 @@ import {
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartItems } from "../Cart/Cart";
+import Auth from "../auth/Auth";
 
 export default function HeaderDesktop() {
 
   const [showCart, setShowCart] = useState<boolean>(false)
+  const [showAuth, setShowAuth] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (showCart || showAuth === true) {
+      document.body.style.overflow = 'hidden';
+    }
+    return (): void => {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showCart, showAuth])
 
   return (
     <header className="bg-White fixed top-0 w-full z-10 py-[1.5%] px-[5%]">
@@ -29,7 +40,9 @@ export default function HeaderDesktop() {
           </div>
         </section>
         <section className="text-[1.3rem] flex  justify-end gap-4">
-          <MdOutlinePerson />
+          <button onClick={() => setShowAuth(!showAuth)}>
+            <MdOutlinePerson />
+          </button>
           <MdFavoriteBorder />
           <button onClick={() => setShowCart(!showCart)}>
             <MdOutlineShoppingCart />
@@ -104,6 +117,10 @@ export default function HeaderDesktop() {
       </div>
       {showCart ?
         <CartItems close={() => setShowCart(!showCart)} />
+        : null
+      }
+      {showAuth ?
+        <Auth close={() => setShowAuth(!showAuth)} />
         : null
       }
     </header>

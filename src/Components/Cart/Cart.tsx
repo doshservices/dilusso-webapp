@@ -7,8 +7,8 @@ interface Props {
 
 export const CartItems = ({ close }: Props) => {
     return (
-        <div className="fixed inset-0 z-100 bg-transparentDark top-0">
-            <div className="max-w-[650px] w-full bg-White pt-8 pb-16 min-h-[100vh] max-h-[100vh] overflow-y-auto">
+        <div className="fixed inset-0 z-100 bg-transparentDark">
+            <div className="max-w-[650px] w-full bg-White pt-8 pb-16 min-h-[100vh] max-h-[100vh] overflow-y-auto ml-auto">
                 <header className="flex justify-between border-b-[1px] border-b-borderHash mx-4 sm:mx-6">
                     <h2 className="font-semibold text-10 font-outfit text-[1.8rem] md:text-[2.2rem]">Your Cart</h2>
                     <button onClick={close}>
