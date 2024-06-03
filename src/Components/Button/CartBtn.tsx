@@ -7,7 +7,7 @@ interface Props {
 export const CartBtn = ({ onClick, text, width }: Props) => {
     return (
         <button onClick={onClick}
-            className={`${width} block text-white text-base border-[1px] font-semibold bg-Black py-3 px-5`}
+            className={`${width} border-Black block text-white text-base border-[1px] font-semibold bg-Black py-3 px-5`}
         >
             {text}
         </button>

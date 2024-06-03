@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom"
 import { CartBtn } from "../Button/CartBtn"
 import { AuthInput } from "../Input"
 import { GoogleButton } from "../Button/GoogleBtn"
+import { AuthButton } from "../Button/Button"
 
 const bonus = [
     'Enjoy 10% off your first order',
@@ -9,9 +11,25 @@ const bonus = [
     'Create your personal Wish List'
 ]
 
-export const SignUp = () => {
+export const SignIn = () => {
     return (
-        <section>
+        <section className="mt-6">
+            <AuthInput
+                label="Email"
+                name='email'
+                type='email'
+            />
+            <AuthInput
+                label="Password"
+                name='password'
+                type='password'
+            />
+            <Link
+                className="text-[#667085] text-sm font-sm font-outfit block w-fit mt-2 mb-6"
+                to='#'>Forgot password?</Link>
+            <AuthButton text='Sign in' width='w-full' />
+            <p className="text-center font-outfit text-Black my-4">OR</p>
+            <GoogleButton />
             <div className="border-b-[1px] border-b-[#2222224D] py-6">
                 {bonus.map((text: string, index: number) =>
                     <p key={index}
@@ -23,27 +41,8 @@ export const SignUp = () => {
                     </p>
                 )}
             </div>
-            <AuthInput
-                label="Full name"
-                name='fullName'
-                type='fullName'
-            />
-            <AuthInput
-                label="Email"
-                name='email'
-                type='email'
-            />
-            <AuthInput
-                label="Password"
-                name='password'
-                type='password'
-            />
-            <div className="mt-7">
+            <div className="my-6">
                 <CartBtn text="Sign up" width="w-full" />
-            </div>
-            <p className="text-center font-outfit text-Black my-4">OR</p>
-            <div className="mb-6">
-                <GoogleButton />
             </div>
         </section>
     )

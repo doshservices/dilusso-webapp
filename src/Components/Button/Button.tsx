@@ -4,6 +4,10 @@ interface Props {
   text: string;
   link: string;
 }
+interface AuthBtn {
+  text: string;
+  width: string
+}
 
 export default function Button(props: Props) {
   return (
@@ -14,4 +18,13 @@ export default function Button(props: Props) {
       {props.text}
     </Link>
   );
+}
+
+
+export const AuthButton = ({ text, width }: AuthBtn) => {
+  return (
+    <button className={`${width} block transition-all duration-200 ease-in-out hover:text-Black text-white text-base border-[1px] border-Black font-semibold bg-Black hover:bg-White py-3 px-5`}>
+      {text}
+    </button>
+  )
 }
