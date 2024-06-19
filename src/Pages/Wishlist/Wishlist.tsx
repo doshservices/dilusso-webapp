@@ -30,12 +30,12 @@ export default function Wishlist() {
         {wishlistData.map((wish) => (
           <div
             key={wish.id}
-            className="w-[50%] mx-auto flex items-center  justify-between "
+            className="w-[100%] sm:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto flex items-center  justify-between "
           >
-            <section className=" w-[18%] ">
+            <section className=" w-[20%] sm:w-[18%] ">
               <img src={pic} className=" w-full" alt="cloths" />
             </section>
-            <section className="w-[75%] flex flex-col gap-6 ">
+            <section className="w-[75%] flex flex-col gap-2 sm:gap-6 ">
               {/* top part */}
               <div>
                 <section className=" justify-between flex">

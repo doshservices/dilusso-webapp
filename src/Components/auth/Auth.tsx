@@ -15,8 +15,8 @@ const Auth = ({ close }: Props) => {
     }
 
     return (
-        <div className="fixed inset-0 z-100 bg-transparentDark pb-8 pt-0 sm:pt-6 overflow-y-auto">
-            <section className="bg-white w-full max-w-[600px] mx-auto py-4 px-4 sm:px-6">
+        <div className="fixed inset-0 z-100 bg-transparentDark py-8  sm:pt-6 overflow-y-auto">
+            <section className="bg-white w-[95%] max-w-[600px] mx-auto py-4 px-4 sm:px-6">
                 <button className="block ml-auto" onClick={close}>
                     <img src={closeIcon} alt="close" />
                 </button>
@@ -45,7 +45,7 @@ const Auth = ({ close }: Props) => {
                 {tab === "signup" ?
                     <SignUp />
                     :
-                    <SignIn />
+                    <SignIn closeButton={close} />
                 }
             </section>
         </div>

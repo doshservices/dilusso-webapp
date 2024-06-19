@@ -39,7 +39,7 @@ export const SignUp = () => {
                 type='password'
             />
             <div className="mt-7">
-                <CartBtn text="Sign up" width="w-full" />
+                <CartBtn link="" text="Sign up" width="w-full" />
             </div>
             <p className="text-center font-outfit text-Black my-4">OR</p>
             <div className="mb-6">
