@@ -21,6 +21,7 @@ export const theme = {
       'OtherWhite': '#F8F8F8',
       'FooterGray': '#F0F0F0',
       'Black': '#222222',
+      "Gray": "#4E4E4E",
       'transparentDark': 'hsla(0, 0%, 13%, 0.8)',
       'borderHash': '#BABABA',
       'borderCartActions': '#999999'

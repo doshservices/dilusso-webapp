@@ -13,18 +13,17 @@ import { CartItems } from "../Cart/Cart";
 import Auth from "../auth/Auth";
 
 export default function HeaderDesktop() {
-
-  const [showCart, setShowCart] = useState<boolean>(false)
-  const [showAuth, setShowAuth] = useState<boolean>(false)
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const [showAuth, setShowAuth] = useState<boolean>(false);
 
   useEffect(() => {
     if (showCart || showAuth === true) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
     return (): void => {
-      document.body.style.overflow = 'unset';
-    }
-  }, [showCart, showAuth])
+      document.body.style.overflow = "unset";
+    };
+  }, [showCart, showAuth]);
 
   return (
     <header className="bg-White fixed top-0 w-full z-10 py-[1.5%] px-[5%]">
@@ -43,7 +42,9 @@ export default function HeaderDesktop() {
           <button onClick={() => setShowAuth(!showAuth)}>
             <MdOutlinePerson />
           </button>
-          <MdFavoriteBorder />
+          <Link to="/wishlist">
+            <MdFavoriteBorder />
+          </Link>
           <button onClick={() => setShowCart(!showCart)}>
             <MdOutlineShoppingCart />
           </button>
@@ -115,14 +116,8 @@ export default function HeaderDesktop() {
           <IoSearchOutline className=" text-[1.3rem] " />
         </section>
       </div>
-      {showCart ?
-        <CartItems close={() => setShowCart(!showCart)} />
-        : null
-      }
-      {showAuth ?
-        <Auth close={() => setShowAuth(!showAuth)} />
-        : null
-      }
+      {showCart ? <CartItems close={() => setShowCart(!showCart)} /> : null}
+      {showAuth ? <Auth close={() => setShowAuth(!showAuth)} /> : null}
     </header>
   );
 }

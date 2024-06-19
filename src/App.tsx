@@ -8,6 +8,8 @@ import Faqs from "./Pages/Faq";
 import Category from "./Pages/Category";
 import ProductDetails from "./Pages/ProductDetails";
 import './App.css'
+import Wishlist from "./Pages/Wishlist/Wishlist";
+import EditPasswordAddress from "./Pages/Edit/EditPasswordAddress";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/editPasswordAddress" element={<EditPasswordAddress />} />
         <Route path="/product/details/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />

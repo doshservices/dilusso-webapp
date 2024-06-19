@@ -41,7 +41,7 @@ export const SelectCountry = () => {
     };
 
     return (
-        <div tabIndex={0} className='border-[1px] border-Black shadow-shawdowCart focus:outline-borderHash outline-offset-2 w-full px-3 mb-6'>
+        <div tabIndex={0} className='border-[1px] border-Black shadow-shawdowCart focus:outline-borderHash outline-offset-2 w-full px-3 '>
             <select
                 name='country'
                 id='country'
