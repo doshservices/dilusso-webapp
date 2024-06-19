@@ -20,7 +20,7 @@ export const CartSummary = () => {
                 <p>₦717,575</p>
             </div>
             <div className="mx-auto max-w-[80%]">
-                <CartBtn text='Continue' width="w-full" />
+                <CartBtn link="" text='Continue' width="w-full" />
             </div>
         </section>
     )
