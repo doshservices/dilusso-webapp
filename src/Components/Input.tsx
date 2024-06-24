@@ -15,7 +15,7 @@ export const AuthInput: FC<AuthInputProps> = ({ type, placeholder, name, label, 
             <input
                 type={type}
                 placeholder={placeholder}
-                name={name}
+                // name={name}
                 id={name}
                 onChange={onChange}
                 className="block border-[1px] border-[#D0D5DD] focus:outline-[#e4e6ea] shadow-shawdowCart text-[#344054] font-sm text-[.95rem] font-medium mt-1 px-2 py-2 w-full"
