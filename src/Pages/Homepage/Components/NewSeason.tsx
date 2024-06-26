@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Button from "../../../Components/Button/Button";
 
 const New = [
   {
@@ -74,7 +75,7 @@ const New = [
   },
 ];
 
-export default function NewArrivals() {
+export default function NewSeason() {
   const [slidesPerView, setSlidesPerView] = useState(window.innerWidth < 640 ? 2 : 4);
 
   useEffect(() => {
@@ -90,12 +91,17 @@ export default function NewArrivals() {
   return (
     <div className="px-[5%] py-[5%] ">
       <div className="">
-        <section className="flex items-end gap-1  ">
+       <section className=" flex justify-between">
+       <div className="flex items-center gap-2  ">
           <h2 className=" font-semibold text-[1.3rem] ssm:text-[1.5rem] sm:text-[1.7rem] md:text-[1.8rem] lg:text-[2.1rem] xxl:text-[2.2rem] ">
-            NEW ARRIVALS
+          New season  is here
           </h2>
           <hr className=" my-3 w-[5rem] border-red-500 border-[3px] " />
-        </section>
+        </div>
+        <div>
+        <Button text="Shop Collection" link="/category" />
+        </div>
+       </section>
 
         <section className=" mt-[1%] ">
           <Swiper

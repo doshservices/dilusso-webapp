@@ -63,7 +63,7 @@ export default function Hero() {
         <h2 className=" font-medium text-[1.1rem] ssm:text-[1.2rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.3rem] xxl:text-[1.4rem] mb-[5%] ">
           20% OFF
         </h2>
-        <Button text="Shop Collection" link="/" />
+        <Button text="Shop Collection" link="/category" />
       </section>
     </div>
   );

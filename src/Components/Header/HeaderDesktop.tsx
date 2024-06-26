@@ -31,7 +31,6 @@ export default function HeaderDesktop() {
         <section className=" flex  gap-2 lg:gap-4 text-[0.8rem] lg:text-[0.9rem] font-medium ">
           <Link to="">Men’s Wear</Link>
           <Link to="">Women’s Wear</Link>
-          <Link to="">Kid’s Wear</Link>
         </section>
         <section className=" flex  justify-centr">
           <div className=" w-[80%] lg:w-auto ">

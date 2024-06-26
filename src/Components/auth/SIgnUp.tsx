@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slice/authSlice";
 import { GoogleButton } from "../Button/GoogleBtn";

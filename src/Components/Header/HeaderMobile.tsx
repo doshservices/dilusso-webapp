@@ -68,7 +68,6 @@ export default function HeaderMobile() {
           <Link onClick={toggleMenu} to="/about">About</Link>
           <Link onClick={toggleMenu} to="">Men’s Wear</Link>
           <Link onClick={toggleMenu} to="">Women’s Wear</Link>
-          <Link onClick={toggleMenu} to="">Kid’s Wear</Link>
           <Link onClick={toggleMenu} to="/faqs">FAQS</Link>
         </section>
 
