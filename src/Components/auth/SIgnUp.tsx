@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/slice/authSlice";
 import { GoogleButton } from "../Button/GoogleBtn";
 import { FieldError, useForm } from "react-hook-form";
 import axios from "axios";
@@ -13,7 +11,6 @@ const bonus = [
 ];
 
 export const SignUp = () => {
-  const dispatch = useDispatch();
   //   form validations starts
   const renderErrorMessage = (error: FieldError) => {
     // You can customize the rendering here based on your requirements
@@ -93,7 +90,7 @@ export const SignUp = () => {
         },
       });
       console.log(response);
-      dispatch(setUser(response?.data?.data));
+      
       reset;
     } catch (error: any) {
       console.log(error);

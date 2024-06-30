@@ -11,10 +11,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { CartItems } from "../Cart/Cart";
 import Auth from "../auth/Auth";
+import { useSelector } from "react-redux";
 
 export default function HeaderDesktop() {
   const [showCart, setShowCart] = useState<boolean>(false);
   const [showAuth, setShowAuth] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const authenticatedUser = useSelector((state: any) => state.auth.user)
+  // console.log("user: ", authenticatedUser);
+  
 
   useEffect(() => {
     if (showCart || showAuth === true) {
@@ -37,7 +42,8 @@ export default function HeaderDesktop() {
             <img src={Logo} className=" w-full" alt="Logo Icon" />
           </div>
         </section>
-        <section className="text-[1.3rem] flex  justify-end gap-4">
+        {!authenticatedUser ? (
+          <section className="text-[1.3rem] flex  justify-end gap-4">
           <button onClick={() => setShowAuth(!showAuth)}>
             <MdOutlinePerson />
           </button>
@@ -52,6 +58,23 @@ export default function HeaderDesktop() {
             <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
           </div>
         </section>
+        ) : (
+          <section className="text-[1.3rem] flex  justify-end gap-4">
+          <button onClick={() => setShowAuth(!showAuth)}>
+            <MdOutlinePerson />
+          </button>
+          <Link to="/wishlist">
+            <MdFavoriteBorder />
+          </Link>
+          <button onClick={() => setShowCart(!showCart)}>
+            <MdOutlineShoppingCart />
+          </button>
+          <div className=" cursor-pointer flex items-center">
+            <MdLanguage />
+            <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
+          </div>
+        </section>
+        )}
       </div>
 
       <div className=" flex justify-between pt-[4%]">

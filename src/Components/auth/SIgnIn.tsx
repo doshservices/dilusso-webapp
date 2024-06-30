@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartBtn } from "../Button/CartBtn";
 import { GoogleButton } from "../Button/GoogleBtn";
 import { AuthButton } from "../Button/Button";
 import { useEffect, useState } from "react";
 import { ForgetPassword } from "../Cart/ForgetPassword";
 import { FieldError, useForm } from "react-hook-form";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/slice/authSlice";
+import { toast } from "react-toastify";
 
 interface Props {
   closeButton: () => void;
@@ -19,6 +23,8 @@ const bonus = [
 
 export const SignIn = ({ closeButton }: Props) => {
   const [showForgetPassword, setShowForgetPassword] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (showForgetPassword === true) {
@@ -39,7 +45,7 @@ export const SignIn = ({ closeButton }: Props) => {
     register,
     handleSubmit,
     // reset,
-    // getValues,
+    getValues,
     formState: { errors },
   } = useForm({
     mode: "onBlur",
@@ -47,7 +53,7 @@ export const SignIn = ({ closeButton }: Props) => {
   const handleError = () => {};
 
   const registerOptions = {
-    email: {
+    inputText: {
       required: "Email is required",
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
@@ -64,8 +70,38 @@ export const SignIn = ({ closeButton }: Props) => {
   };
   //   form validations ends
 
-  //   form submit call
-  const handleApiSubmit = () => {};
+
+ //   form submit call
+ const baseUrl = import.meta.env.VITE_BASEURL
+ const url = `${baseUrl}/api/users/login`;
+
+ const handleApiSubmit = async () => {
+   const { inputText, password } = getValues();
+   
+   const data = {
+    inputText,
+     password,
+   };
+   console.log("Data being sent: ", data);
+   try {
+     const response = await axios.post(url, data, {
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
+     console.log(response);
+     navigate("/")
+     dispatch(setUser(response?.data?.data));
+     toast.success("You've succesfully logged in!")
+     closeButton();
+    //  reset;
+
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   } catch (error: any) {
+     console.log(error);
+     toast.error("Error in logging in!")
+   }
+ };
 
   return (
     <section className="mt-6">
@@ -77,12 +113,12 @@ export const SignIn = ({ closeButton }: Props) => {
           <input
             type="email"
             id="email"
-            {...register("email", registerOptions.email)}
+            {...register("inputText", registerOptions.inputText)}
             className="block border-[1px] border-[#D0D5DD] focus:outline-[#e4e6ea] shadow-shawdowCart text-[#344054] font-sm text-[.95rem] font-medium mt-1 px-2 py-2 w-full"
           />
         </div>
         <small className=" text-[red] ">
-          {errors?.email && renderErrorMessage(errors.email as FieldError)}
+          {errors?.inputText && renderErrorMessage(errors.inputText as FieldError)}
         </small>
 
         <div className="mt-4">
