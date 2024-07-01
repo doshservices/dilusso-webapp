@@ -14,9 +14,11 @@ interface ProductsState {
 }
 
 const Category = () => {
-  const { isLoading, data: productsData } = useGetProducts();
+  const { isLoading, error, data: productsData } = useGetProducts();
   const Products = productsData?.data?.data?.availableProducts;
-  // console.log("products data:", Products);
+  // console.log("products data:", Products);\
+  console.log("error", error);
+  
 
   return (
     <div className="pt-20 pb-8 sm:pt-36 px-[5%]">

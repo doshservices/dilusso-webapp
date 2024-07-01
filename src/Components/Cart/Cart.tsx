@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from "react-redux"
 import { CartBtn } from "../Button/CartBtn"
 import { Items } from "./ItemCard"
@@ -5,6 +6,10 @@ import { Items } from "./ItemCard"
 interface Props {
     close: () => void
 }
+
+// interface CartState {
+
+// }
 
 export const CartItems = ({ close }: Props) => {
     const cartItems = useSelector((state: any) => state.cart.items)
@@ -26,7 +31,7 @@ export const CartItems = ({ close }: Props) => {
                 <div>
                     {cartItems.map((cart: any) => (
                         <div key={cart?._id}>
-                            <Items />
+                            <Items cartItem={cart} />
                         </div>
                     ))}
                 </div>

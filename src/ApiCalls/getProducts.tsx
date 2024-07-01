@@ -1,26 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-interface AuthState {
-  auth: {
-    user: {
-      token: string;
-    } | null;
-  };
-}
+// interface AuthState {
+//   auth: {
+//     user: {
+//       token: string;
+//     } | null;
+//   };
+// }
 
 export function useGetProducts() {
-  const baseUrl = import.meta.env.VITE_BASEURL;
-  const token = useSelector((state: AuthState) => state.auth.user?.token);
+  // const token = useSelector((state: AuthState) => state.auth.user?.token);
   const getProducts = () => {
-    return axios.get(`${baseUrl}/api/products/available`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    // return request({url: '/api/user/'})
+    return axios.get(`https://sowo-backend.onrender.com/api/products/available`, 
+    //   {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // }
+  );
   };
   return useQuery({
     queryKey: ["products"],

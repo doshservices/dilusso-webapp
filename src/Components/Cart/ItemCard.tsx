@@ -1,26 +1,46 @@
+import { useDispatch } from 'react-redux';
 import item from '../../assets/item.png';
+import formatPrice from '../../functions/FormatPrice';
+
+interface CartState {
+    cartItem: {
+        name: string 
+        price: string 
+        image: string 
+        description: string
+    } | null
+}
 
 export { item }
 
-export const Items = () => (
+const dispatch = useDispatch();
+
+const handleRemoveFromCart = (productId: string) => {
+    dispatch(removeItemFromCart(productId));
+    toast.success("You've removed item from cart!")
+};
+
+export const Items = ({cartItem}: CartState) => (
     <div className='flex items-center gap-8 border-b-[#E9E9E9] border-b-[1px] pt-6 pb-2 pl-4 sm:pl-8 pr-4 sm:pr-6'>
-        <img src={item} alt="" />
+        <div className='  '>
+        <img src={cartItem?.image} className='w-full h-[5rem] object-contain' alt="" />
+        </div>
         <div className='grow'>
             <div className='flex items-center justify-between'>
-                <h3 className="font-outfit text-[#4E4E4E] text-sm">Balmain</h3>
+                <h3 className="font-outfit text-[#4E4E4E] text-sm">{cartItem?.name}</h3>
                 <button>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.97141 4.02827C4.71107 3.76792 4.28896 3.76792 4.02861 4.02827C3.76826 4.28862 3.76826 4.71073 4.02861 4.97108L7.55721 8.49969L4.02862 12.0283C3.76828 12.2886 3.76828 12.7107 4.02862 12.9711C4.28897 13.2314 4.71108 13.2314 4.97143 12.9711L8.50002 9.44249L12.0286 12.9711C12.289 13.2314 12.7111 13.2314 12.9714 12.9711C13.2318 12.7107 13.2318 12.2886 12.9714 12.0283L9.44283 8.49969L12.9714 4.97108C13.2318 4.71073 13.2318 4.28862 12.9714 4.02827C12.7111 3.76792 12.289 3.76792 12.0286 4.02827L8.50002 7.55688L4.97141 4.02827Z" fill="#FF0000" />
                     </svg>
                 </button>
             </div>
-            <p className="font-outfit text-base text-Black font-medium my-1">Double - breasted denim jacket</p>
+            <p className="font-outfit text-base text-Black font-medium my-1">{cartItem?.description}</p>
             <div className='flex items-center gap-10'>
                 <p className="font-outfit text-[#4E4E4E] text-sm">Size 36 FR</p>
                 <button className='text-[#975555] border-b-[1px] border-b-[#975555] text-sm'>Edit</button>
             </div>
             <div className='flex items-center justify-between mt-4'>
-                <p className="text-base font-medium font-outfit font-medium text-Black">₦717,575</p>
+                <p className="text-base font-medium font-outfit text-Black">{formatPrice(cartItem?.price ?? "0")}</p>
                 <div className="flex items-center border-borderCartActions border-[1px] w-fit px-2 gap-3">
                     <button>
                         <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">

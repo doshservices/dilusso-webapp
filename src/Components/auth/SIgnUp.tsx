@@ -69,7 +69,7 @@ export const SignUp = () => {
   //   form validations ends
 
   //   form submit call
-  const url = "https://sowo-backend.onrender.com/api/users/";
+  const url = `https://sowo-backend.onrender.com/api/users/`;
 
   const handleApiSubmit = async () => {
     const { firstName, lastName, email, phoneNumber, password } = getValues();
@@ -91,12 +91,12 @@ export const SignUp = () => {
         },
       });
       console.log(response);
-      toast.success("You've succesfully created an account!")
+      toast.success("You've succesfully created an accout!")
       
       reset;
     } catch (error: any) {
       console.log(error?.response?.data?.message);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message)
     }
   };
 
