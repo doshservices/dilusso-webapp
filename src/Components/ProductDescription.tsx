@@ -8,9 +8,11 @@ import { toast } from "react-toastify";
 interface ProductsState {
     product: {
         _id: string | null;
+
     brand_name: {
       name: string;
     } | null;
+    name: string;
     price: string | null;
     description: string | null;
     image: string[] | null;
@@ -28,10 +30,10 @@ export const ProductDetailsDescription = ({product}: ProductsState) => {
     };
 
     const handleAddToCart = () => {
-        if (product?._id && product?.brand_name?.name && product?.price && product?.description && product?.image) {
+        if (product?._id && product?.name && product?.price && product?.description && product?.image) {
           dispatch(addItemToCart({
             id: product._id,
-            name: product.brand_name.name,
+            name: product.name,
             price: product.price,
             description: product.description,
             image: product.image[0],
@@ -51,7 +53,7 @@ export const ProductDetailsDescription = ({product}: ProductsState) => {
 
     return (
         <section className="bg-[#f6f6f6] font-outfit p-4 md:p-6">
-            <h2 className="text-[1.2rem] font-bold">{product?.brand_name?.name}</h2>
+            <h2 className="text-[1.2rem] font-bold">{product?.name}</h2>
             <p className="text-[1.1rem] my-2">{product?.description}</p>
             <p className="text-[1.1rem] font-medium">{formatPrice(product?.price ?? "0")}</p>
             <p className="text-sm">Light crossbody bag with shoelace strap Light crossbody bag with shoelace strap Light crossbody bag with shoelace strap Light crossbody bag with shoelace strap Light crossbody bag with shoelace strap</p>
@@ -78,7 +80,7 @@ export const ProductDetailsDescription = ({product}: ProductsState) => {
             </div>
             <div className="flex gap-2 items-center">
             {isInCart ? (
-                    <div onClick={() => handleRemoveFromCart(product?._id)}>
+                    <div onClick={() => handleRemoveFromCart(product?._id ?? "")}>
                         <CartBtn link="" text="Remove from Cart" width="w-full" />
                     </div>
                 ) : (

@@ -5,6 +5,7 @@ import formatPrice from "../functions/FormatPrice";
 
 interface ProductsState {
   _id: string | null;
+  name: string;
   brand_name: {
     name: string;
   } | null;
@@ -16,7 +17,7 @@ interface ProductsState {
 const Category = () => {
   const { isLoading, error, data: productsData } = useGetProducts();
   const Products = productsData?.data?.data?.availableProducts;
-  // console.log("products data:", Products);\
+  console.log("products data:", Products);
   console.log("error", error);
   
 
@@ -45,7 +46,7 @@ const Category = () => {
               </div>
               <div className="flex pt-2 items-center justify-between">
                 <p className="text-sm font-medium text-[#333333]">
-                  {product?.brand_name?.name}
+                  {product?.name}
                 </p>
                 <p className="text-sm font-medium text-[#333333]">
                   {formatPrice(product?.price ?? "0")}{" "}

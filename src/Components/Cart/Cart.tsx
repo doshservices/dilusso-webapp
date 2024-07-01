@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux"
 import { CartBtn } from "../Button/CartBtn"
 import { Items } from "./ItemCard"
+import formatPrice from "../../functions/FormatPrice"
 
 interface Props {
     close: () => void
@@ -14,6 +15,15 @@ interface Props {
 export const CartItems = ({ close }: Props) => {
     const cartItems = useSelector((state: any) => state.cart.items)
     console.log("cart:", cartItems);
+
+    const calculateTotalPrice = () => {
+        return cartItems.reduce((total: number, item: any) => {
+          const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+          return total + itemPrice;
+        }, 0);
+      };
+    
+      const totalPrice = calculateTotalPrice();
     
 
     return (
@@ -28,7 +38,9 @@ export const CartItems = ({ close }: Props) => {
                         </svg>
                     </button>
                 </header>
-                <div>
+                {cartItems.length > 0 ? (
+                    <>
+                    <div>
                     {cartItems.map((cart: any) => (
                         <div key={cart?._id}>
                             <Items cartItem={cart} />
@@ -38,7 +50,7 @@ export const CartItems = ({ close }: Props) => {
                 <div className="px-4 sm:px-6">
                     <div className="flex justify-between font-semibold font-outfit text-base my-8 px-4">
                         <h3>Subtotal</h3>
-                        <p>₦717,575</p>
+                        <p>{formatPrice(totalPrice)}</p>
                     </div>
                     <CartBtn
                         text="Go To Checkout"
@@ -48,6 +60,12 @@ export const CartItems = ({ close }: Props) => {
                     />
                 </div>
                 <button onClick={close} className="border-b-[1px] border-b-[#4E4E4E] text-[#4e4e4e] block mx-auto font-outfit py-1 text-sm my-6">Continue Shopping</button>
+                    </>
+                ) : (
+                    <div className="px-4 sm:px-6 py-5 ">
+                        <p className=" text-[1rem] sm:text-[1.2rem] ">No item in cart</p>
+                    </div>
+                )}
             </div>
         </div>
     )

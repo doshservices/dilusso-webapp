@@ -17,9 +17,10 @@ export default function HeaderDesktop() {
   const [showCart, setShowCart] = useState<boolean>(false);
   const [showAuth, setShowAuth] = useState<boolean>(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const authenticatedUser = useSelector((state: any) => state.auth.user)
+  const authenticatedUser = useSelector((state: any) => state.auth.user);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cartItems = useSelector((state: any) => state.cart.items)
   // console.log("user: ", authenticatedUser);
-  
 
   useEffect(() => {
     if (showCart || showAuth === true) {
@@ -42,38 +43,54 @@ export default function HeaderDesktop() {
             <img src={Logo} className=" w-full" alt="Logo Icon" />
           </div>
         </section>
-        {!authenticatedUser ? (
+        {authenticatedUser ? (
           <section className="text-[1.3rem] flex  justify-end gap-4">
-          <button onClick={() => setShowAuth(!showAuth)}>
-            <MdOutlinePerson />
-          </button>
-          <Link to="/wishlist">
-            <MdFavoriteBorder />
-          </Link>
-          <button onClick={() => setShowCart(!showCart)}>
-            <MdOutlineShoppingCart />
-          </button>
-          <div className=" cursor-pointer flex items-center">
-            <MdLanguage />
-            <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
-          </div>
-        </section>
+            <button>
+              <MdOutlinePerson />
+            </button>
+            <Link to="/wishlist">
+              <MdFavoriteBorder />
+            </Link>
+            <button
+              className=" relative"
+              onClick={() => setShowCart(!showCart)}
+            >
+              <MdOutlineShoppingCart />
+              {cartItems?.length > 0 && (
+                <small className=" absolute bg-black text-white text-[0.5rem] leading-none rounded-full flex justify-center items-center w-[0.75rem] h-[0.75rem] top-[-20%] right-0 ">
+                {cartItems?.length}
+              </small>
+              )}
+            </button>
+            <div className=" cursor-pointer flex items-center">
+              <MdLanguage />
+              <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
+            </div>
+          </section>
         ) : (
           <section className="text-[1.3rem] flex  justify-end gap-4">
-          <button onClick={() => setShowAuth(!showAuth)}>
-            <MdOutlinePerson />
-          </button>
-          <Link to="/wishlist">
-            <MdFavoriteBorder />
-          </Link>
-          <button onClick={() => setShowCart(!showCart)}>
-            <MdOutlineShoppingCart />
-          </button>
-          <div className=" cursor-pointer flex items-center">
-            <MdLanguage />
-            <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
-          </div>
-        </section>
+            <button onClick={() => setShowAuth(!showAuth)}>
+              <MdOutlinePerson />
+            </button>
+            <Link to="/wishlist">
+              <MdFavoriteBorder />
+            </Link>
+            <button
+              className=" relative"
+              onClick={() => setShowCart(!showCart)}
+            >
+              <MdOutlineShoppingCart />
+              {cartItems?.length > 0 && (
+                <small className=" absolute bg-black text-white text-[0.5rem] leading-none rounded-full flex justify-center items-center w-[0.75rem] h-[0.75rem] top-[-20%] right-0 ">
+                {cartItems?.length}
+              </small>
+              )}
+            </button>
+            <div className=" cursor-pointer flex items-center">
+              <MdLanguage />
+              <MdOutlineKeyboardArrowDown className=" text-[1rem] " />
+            </div>
+          </section>
         )}
       </div>
 
