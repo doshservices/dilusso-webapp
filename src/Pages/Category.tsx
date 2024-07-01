@@ -1,110 +1,63 @@
-import womenHeroimg from '../assets/Frame 1000007698.png'
-import shirt from '../assets/t-shirt.png';
+import { Link } from "react-router-dom";
+import { useGetProducts } from "../ApiCalls/getProducts";
+import shirt from "../assets/t-shirt.png";
+import formatPrice from "../functions/FormatPrice";
+
+interface ProductsState {
+  _id: string | null;
+  brand_name: {
+    name: string;
+  } | null;
+  price: string | null;
+  description: string | null;
+  image: string[] | null;
+}
 
 const Category = () => {
-    return (
-        <div className='pt-20 pb-8 sm:pt-36 px-[5%]'>
-            <img src={womenHeroimg} alt="" />
-            <div className='grid grid-cols-2 sm:grid-cols-3 gap-4'>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-                <div className='p-3'>
-                    <img src={shirt} className='w-full mb-2' alt="" />
-                    <div className='flex items-center justify-between'>
-                        <p className='text-sm font-medium text-[#333333]'>Designer Name</p>
-                        <p className='text-sm font-medium text-[#333333]'>$400</p>
-                    </div>
-                    <p className='text-[#000000e6] text-sm mt-3'>Little description</p>
-                </div>
-            </div>
-        </div>
-    )
-}
+  const { isLoading, data: productsData } = useGetProducts();
+  const Products = productsData?.data?.data?.availableProducts;
+  // console.log("products data:", Products);
+
+  return (
+    <div className="pt-20 pb-8 sm:pt-36 px-[5%]">
+      <div className=" women-placeholder text-center py-5 text-white ">
+        <h1 className="text-[3.5rem]  ">MEN'S WEARS</h1>
+      </div>
+
+      {isLoading ? (
+        <div>Loading</div>
+      ) : (
+        <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-4 gap-6">
+          {Products?.map((product: ProductsState) => (
+            <Link to={`/product/details/${product?._id}`} className="p-3" key={product?._id}>
+              <div>
+                <img
+                  src={
+                    product?.image && product.image.length > 0
+                      ? product.image[0]
+                      : shirt
+                  }
+                  className="w-full h-[15rem] object-contain "
+                  alt="Product Image"
+                />
+              </div>
+              <div className="flex pt-2 items-center justify-between">
+                <p className="text-sm font-medium text-[#333333]">
+                  {product?.brand_name?.name}
+                </p>
+                <p className="text-sm font-medium text-[#333333]">
+                  {formatPrice(product?.price ?? "0")}{" "}
+                </p>
+              </div>
+              <p className="text-[#000000e6] text-sm mt-3">
+                {product?.description}
+              </p>
+            </Link>
+          ))}
+        </section>
+      )}
+    </div>
+  );
+};
 
 export default Category;

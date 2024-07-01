@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux"
 import { CartBtn } from "../Button/CartBtn"
 import { Items } from "./ItemCard"
 
@@ -6,6 +7,10 @@ interface Props {
 }
 
 export const CartItems = ({ close }: Props) => {
+    const cartItems = useSelector((state: any) => state.cart.items)
+    console.log("cart:", cartItems);
+    
+
     return (
         <div className="fixed inset-0 z-100 py-8 bg-transparentDark">
             <div className="max-w-[650px] w-[95%] bg-White pt-8 pb-16 min-h-[100vh] max-h-[100vh] overflow-y-auto mx-auto sm:mr-0  sm:ml-auto">
@@ -18,9 +23,13 @@ export const CartItems = ({ close }: Props) => {
                         </svg>
                     </button>
                 </header>
-                <Items />
-                <Items />
-                <Items />
+                <div>
+                    {cartItems.map((cart: any) => (
+                        <div key={cart?._id}>
+                            <Items />
+                        </div>
+                    ))}
+                </div>
                 <div className="px-4 sm:px-6">
                     <div className="flex justify-between font-semibold font-outfit text-base my-8 px-4">
                         <h3>Subtotal</h3>

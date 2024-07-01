@@ -2,10 +2,29 @@ import { useState } from "react";
 import { ItemDetails } from "../Components/Product/Details";
 import { ProductDetailsDescription } from "../Components/ProductDescription";
 import ProductCards from "../Components/Slider/ProductsCard";
+import { useParams } from "react-router-dom";
+import { useGetProductsById } from "../ApiCalls/GetProductsById";
+
+interface ProductsState {
+    _id: string | null;
+    brand_name: {
+      name: string;
+    } | null;
+    price: string | null;
+    description: string | null;
+    image: string[] | null;
+  }
 
 const ProductDetails = () => {
     const [expandedIndex, setExpandedIndex] = useState<boolean>(false);
     const [expandedIndex2, setExpandedIndex2] = useState<boolean>(false);
+    const { id } = useParams<{ id: string }>();
+    // console.log("product id:", id);
+
+    const { isLoading, isFetching, data: productsData } = useGetProductsById(id!);
+    const ProductsData = productsData?.data?.data?.availableProducts[1];
+  console.log("products data 1:", ProductsData);
+    
 
     // const handleToggle = (index: number) => {
     //     setExpandedIndex(expandedIndex === index ? null : index);
@@ -14,8 +33,8 @@ const ProductDetails = () => {
     return (
         <div className="pt-16 pb-6 sm:pt-[10rem] px-[5%]">
             <div className="grid md:grid-cols-[2fr_1fr] gap-8">
-                <ItemDetails />
-                <ProductDetailsDescription />
+                <ItemDetails images={ProductsData?.image} />
+                <ProductDetailsDescription product={ProductsData} />
             </div>
             <p className="flex items-center font-outfit text-sm mb-8">
                 Womenswear

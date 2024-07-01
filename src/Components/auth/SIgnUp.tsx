@@ -2,6 +2,7 @@
 import { GoogleButton } from "../Button/GoogleBtn";
 import { FieldError, useForm } from "react-hook-form";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const bonus = [
   "Enjoy 10% off your first order",
@@ -90,10 +91,12 @@ export const SignUp = () => {
         },
       });
       console.log(response);
+      toast.success("You've succesfully created an account!")
       
       reset;
     } catch (error: any) {
-      console.log(error);
+      console.log(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   };
 

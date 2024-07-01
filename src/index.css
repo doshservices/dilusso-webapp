@@ -34,6 +34,13 @@ body {
   height: 600px;
 
 }
+.women-placeholder {
+  background: url("./Pages/assets/women-placeholder.png"), rgba(34, 34, 34, 0.300);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 
 /* swiper */
 .mySwiper .swiper-button-prev {
